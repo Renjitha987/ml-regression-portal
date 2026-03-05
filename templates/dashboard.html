@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Dashboard</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+<div class="logo">ML Portal</div>
+
+<ul>
+<li><a href="/dashboard">Home</a></li>
+<li><a href="/logout">Logout</a></li>
+</ul>
+
+</nav>
+
+<div class="main-container">
+
+<h2>Select Model</h2>
+
+<br>
+
+<a href="/slr"><button>Simple Linear Regression</button></a>
+
+<br><br>
+
+<a href="/mlr"><button>Multiple Linear Regression</button></a>
+
+<br><br>
+
+<a href="/plr"><button>Polynomial Regression</button></a>
+
+</div>
+
+</body>
+
+</html>

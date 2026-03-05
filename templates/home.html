@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Machine Learning Portal</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="stars"></div>
+
+<div class="main-container">
+
+    <nav class="navbar">
+
+<div class="logo">ML Portal</div>
+
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/login">Login</a></li>
+<li><a href="/register">Register</a></li>
+</ul>
+
+</nav>
+<!-- HEADER -->
+
+<header class="header">
+
+<div class="header-content">
+
+<h1 class="title">
+<i class="fas fa-brain"></i> Machine Learning Portal
+</h1>
+
+<p class="subtitle">Advanced Regression Prediction Models</p>
+
+</div>
+
+</header>
+
+
+<!-- MODELS SECTION -->
+
+<section class="models-section">
+
+<h2 class="section-title">Select Your Model</h2>
+
+<div class="cards-container">
+
+
+<!-- SLR CARD -->
+
+<div class="card">
+
+<div class="card-header slr-header">
+<i class="fas fa-line-chart"></i>
+</div>
+
+<div class="card-content">
+
+<h3>Simple Linear Regression</h3>
+
+<p class="description">
+Predict values based on a single input variable using linear relationship analysis.
+</p>
+
+<div class="features">
+
+<span class="feature-tag">Single Variable</span>
+
+<span class="feature-tag">Linear Model</span>
+
+</div>
+
+<div class="stats">
+
+<div class="stat">
+<span class="stat-label">Variables</span>
+<span class="stat-value">1</span>
+</div>
+
+<div class="stat">
+<span class="stat-label">Complexity</span>
+<span class="stat-value">Low</span>
+</div>
+
+</div>
+
+<a href="/slr" class="btn btn-primary">Launch Model</a>
+
+</div>
+
+</div>
+
+
+<!-- MLR CARD -->
+
+<div class="card">
+
+<div class="card-header mlr-header">
+<i class="fas fa-chart-bar"></i>
+</div>
+
+<div class="card-content">
+
+<h3>Multiple Linear Regression</h3>
+
+<p class="description">
+Analyze relationships with multiple input variables for complex predictions.
+</p>
+
+<div class="features">
+
+<span class="feature-tag">Multi Variables</span>
+
+<span class="feature-tag">Advanced</span>
+
+</div>
+
+<div class="stats">
+
+<div class="stat">
+<span class="stat-label">Variables</span>
+<span class="stat-value">4+</span>
+</div>
+
+<div class="stat">
+<span class="stat-label">Complexity</span>
+<span class="stat-value">High</span>
+</div>
+
+</div>
+
+<a href="/mlr" class="btn btn-secondary">Launch Model</a>
+
+</div>
+
+</div>
+
+
+<!-- PLR CARD -->
+
+<div class="card">
+
+<div class="card-header plr-header">
+<i class="fas fa-project-diagram"></i>
+</div>
+
+<div class="card-content">
+
+<h3>Polynomial Regression</h3>
+
+<p class="description">
+Predict nonlinear relationships using polynomial curve fitting.
+</p>
+
+<div class="features">
+
+<span class="feature-tag">Non Linear</span>
+
+<span class="feature-tag">Curve Model</span>
+
+</div>
+
+<div class="stats">
+
+<div class="stat">
+<span class="stat-label">Degree</span>
+<span class="stat-value">2+</span>
+</div>
+
+<div class="stat">
+<span class="stat-label">Complexity</span>
+<span class="stat-value">Medium</span>
+</div>
+
+</div>
+
+<a href="/plr" class="btn btn-primary">Launch Model</a>
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- INFO SECTION -->
+
+<section class="info-section">
+
+<div class="info-grid">
+
+<div class="info-card">
+
+<i class="fas fa-cog"></i>
+
+<h4>Easy to Use</h4>
+
+<p>Simple interface for quick predictions and analysis</p>
+
+</div>
+
+
+<div class="info-card">
+
+<i class="fas fa-bolt"></i>
+
+<h4>Fast Results</h4>
+
+<p>Get instant predictions with pre-trained models</p>
+
+</div>
+
+
+<div class="info-card">
+
+<i class="fas fa-chart-line"></i>
+
+<h4>Visualizations</h4>
+
+<p>View prediction results and graphs instantly</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+<p>&copy; 2026 ML Portal | Powered by Machine Learning</p>
+
+</footer>
+
+</div>
+
+
+<!-- ANIMATION -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+<script>
+
+gsap.from(".card",{
+duration:0.8,
+opacity:0,
+y:30,
+stagger:0.2,
+ease:"power2.out"
+});
+
+
+gsap.from(".info-card",{
+duration:0.8,
+opacity:0,
+y:20,
+stagger:0.1,
+delay:0.5,
+ease:"power2.out"
+});
+
+
+function createStars(){
+
+const starsContainer=document.querySelector('.stars');
+
+for(let i=0;i<50;i++){
+
+const star=document.createElement('div');
+
+star.className='star';
+
+star.style.left=Math.random()*100+'%';
+
+star.style.top=Math.random()*100+'%';
+
+star.style.animationDelay=Math.random()*2+'s';
+
+starsContainer.appendChild(star);
+
+}
+
+}
+
+createStars();
+
+</script>
+
+</body>
+
+</html>

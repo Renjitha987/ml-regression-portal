@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Polynomial Regression</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="main-container">
+
+<header class="header">
+
+<h1 class="title">
+<i class="fas fa-project-diagram"></i> Polynomial Regression
+</h1>
+
+<p class="subtitle">Predict Car Selling Price using Polynomial Curve</p>
+
+</header>
+
+
+<div class="form-container">
+
+<form method="POST">
+
+<label>Present Price (Lakhs)</label>
+
+<input 
+type="number"
+step="0.01"
+name="x"
+placeholder="Enter Present Price"
+required
+>
+
+<br><br>
+
+<button type="submit" class="btn btn-primary">
+Predict Selling Price
+</button>
+
+</form>
+
+</div>
+
+
+<div class="back-home">
+
+<br>
+
+<a href="/" class="btn btn-secondary">
+<i class="fas fa-home"></i> Back to Home
+</a>
+
+</div>
+
+
+</div>
+
+</body>
+
+</html>
