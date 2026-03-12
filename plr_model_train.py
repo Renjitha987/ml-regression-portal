@@ -73,17 +73,20 @@ print("R2 Score:", r2_score(y_test, y_pred))
 # Step 8: Visualization
 # -------------------------------
 
-X_grid = np.arange(X.min(), X.max(), 0.1)
-X_grid = X_grid.reshape(-1, 1)
+X_grid = np.linspace(X.min(), X.max(), 500).reshape(-1, 1)
 
 X_grid_poly = poly.transform(X_grid)
 
-plt.scatter(X, y, color="red")
-plt.plot(X_grid, model.predict(X_grid_poly), color="blue")
+y_curve = model.predict(X_grid_poly)
+
+plt.figure(figsize=(8, 6))
+plt.scatter(X.flatten(), y, color="red", alpha=0.8, label="Actual Data")
+plt.plot(X_grid.flatten(), y_curve, color="blue", linewidth=2, label="Polynomial Fit")
 
 plt.xlabel("Present Price")
 plt.ylabel("Selling Price")
 plt.title("Polynomial Regression")
+plt.legend()
 
 plt.show()
 
