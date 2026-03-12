@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify, session, redirect
+from flask import Flask, render_template, request
 import pickle
 import numpy as np
 import matplotlib.pyplot as plt
@@ -8,10 +8,6 @@ import matplotlib
 matplotlib.use('Agg')
 
 app = Flask(__name__)
-app.secret_key = "mlproject123"
-
-# temporary user storage
-users = {}
 
 # model availability
 models_available = {
@@ -50,70 +46,13 @@ except Exception as e:
 
 @app.route("/")
 def home():
-
-    if "user" in session:
-        return render_template("home.html", logged_in=True)
-
-    else:
-        return render_template("home.html", logged_in=False)
-
-
-# ---------------- LOGIN ----------------
-
-@app.route("/login", methods=["GET","POST"])
-def login():
-
-    if request.method == "POST":
-
-        username = request.form["username"]
-        password = request.form["password"]
-
-        if username in users and users[username] == password:
-
-            session["user"] = username
-
-            return redirect("/")
-
-        else:
-            return "Invalid Login"
-
-    return render_template("login.html")
-
-
-# ---------------- REGISTER ----------------
-
-@app.route("/register", methods=["GET","POST"])
-def register():
-
-    if request.method == "POST":
-
-        username = request.form["username"]
-        password = request.form["password"]
-
-        users[username] = password
-
-        return redirect("/login")
-
-    return render_template("register.html")
-
-
-# ---------------- LOGOUT ----------------
-
-@app.route("/logout")
-def logout():
-
-    session.pop("user", None)
-
-    return redirect("/")
+    return render_template("home.html")
 
 
 # ---------------- SLR ----------------
 
 @app.route("/slr", methods=["GET","POST"])
 def slr():
-
-    if "user" not in session:
-        return redirect("/login")
 
     if not models_available["slr"]:
         return "SLR Model Not Available"
@@ -149,9 +88,6 @@ def slr():
 @app.route("/mlr", methods=["GET","POST"])
 def mlr():
 
-    if "user" not in session:
-        return redirect("/login")
-
     if not models_available["mlr"]:
         return "MLR Model Not Available"
 
@@ -177,9 +113,6 @@ def mlr():
 
 @app.route("/plr", methods=["GET","POST"])
 def plr():
-
-    if "user" not in session:
-        return redirect("/login")
 
     if not models_available["plr"]:
         return "PLR Model Not Available"
